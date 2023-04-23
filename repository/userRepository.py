@@ -19,6 +19,14 @@ def get_user_info_by_id(session: Session, _id: int) -> UserInfo:
 
     return user_info
 
+def get_user_info_by_email(session: Session, email: str) -> UserInfo:
+    user_info = session.query(UserInfo).filter(UserInfo.email == email).first()
+
+    if user_info is None:
+        raise UserInfoNotFoundError
+
+    return user_info
+
 
 # Function to add a new car info to the database
 def create_user(session: Session, user_info: CreateAndUpdateUser) -> UserInfo:

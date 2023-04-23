@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi_utils.cbv import cbv
 from sqlalchemy.orm import Session
-from repository.userRepository import get_all_users, create_user, get_user_info_by_id, update_user_info, delete_user_info
+from repository.userRepository import *
 from config.database import get_db
 from exceptions.userExceptions import UserInfoException
 from schema.userSchema import User, CreateAndUpdateUser, PaginatedUserInfo
@@ -32,6 +32,24 @@ class Users:
         except UserInfoException as cie:
             raise HTTPException(**cie.__dict__)
 
+@router.get("/getUserByEmail/{user_email}", response_model=User)
+def get_user_by_email(user_email: str, session: Session = Depends(get_db)):
+    try:
+        user_info = get_user_info_by_email(session, user_email)
+        return user_info
+    except UserInfoException as cie:
+        raise HTTPException(**cie.__dict__)
+    
+@router.get("/login/", response_model=bool)
+def get_user_by_email(user_email: str, password: str, session: Session = Depends(get_db)):
+    try:
+        user_info = get_user_info_by_email(session, user_email)
+        if(user_info.password == password):
+            return True
+        else :
+            return False
+    except UserInfoException as cie:
+        raise HTTPException(**cie.__dict__)
 
 # API endpoint to get info of a particular car
 @router.get("/getUser/{user_id}", response_model=User)
