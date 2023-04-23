@@ -1,12 +1,13 @@
 from pydantic import BaseModel
 from typing import Optional, List
+from model.userModel import UserType
 
 class CreateAndUpdateUser(BaseModel):
     email : str
     firstName : str
     lastName : str
     password : str
-    role : str
+    role : UserType
     profilePicUrl : str
 
 class User(CreateAndUpdateUser):

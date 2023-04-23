@@ -1,6 +1,11 @@
 from sqlalchemy.schema import Column
-from sqlalchemy.types import String, Integer, Enum
+from sqlalchemy.types import String, Integer,Enum
 from config.database import Base
+import enum
+
+class UserType(str, enum.Enum):
+    Student = "Student"
+    Teacher = "Teacher"
 
 class UserInfo(Base):
     __tablename__ = "users"
@@ -10,5 +15,5 @@ class UserInfo(Base):
     firstName = Column(String)
     lastName = Column(String)
     password = Column(String)
-    role = Column(String)
+    role = Column(Enum(UserType))
     profilePicUrl = Column(String)
