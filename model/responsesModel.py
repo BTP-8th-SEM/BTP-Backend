@@ -4,7 +4,7 @@ from config.database import Base
 import enum
 
 class Question(Base):
-    __tablename__ = "questions"
+    __tablename__ = "responses"
 
     id = Column(Integer, primary_key=True, index=True)
     questionId = Column(Integer)
