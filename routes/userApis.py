@@ -5,6 +5,7 @@ from repository.userRepository import *
 from config.database import get_db
 from exceptions.userExceptions import UserInfoException
 from schema.userSchema import User, CreateAndUpdateUser, PaginatedUserInfo
+from schema.AuthenticationResponse import AuthenticationResponse
 
 router = APIRouter()
 
@@ -40,14 +41,20 @@ def get_user_by_email(user_email: str, session: Session = Depends(get_db)):
     except UserInfoException as cie:
         raise HTTPException(**cie.__dict__)
     
-@router.get("/login/", response_model=bool)
-def get_user_by_email(user_email: str, password: str, session: Session = Depends(get_db)):
+@router.get("/login", response_model=AuthenticationResponse)
+def login(user_email: str, password: str, session: Session = Depends(get_db)):
     try:
         user_info = get_user_info_by_email(session, user_email)
         if(user_info.password == password):
-            return True
+            authResponse = AuthenticationResponse()
+            authResponse.role = user_info.role
+            authResponse.isAuthenticated = True
+            return authResponse
         else :
-            return False
+            authResponse = AuthenticationResponse()
+            authResponse.role = None
+            authResponse.isAuthenticated = False
+            return authResponse
     except UserInfoException as cie:
         raise HTTPException(**cie.__dict__)
 
