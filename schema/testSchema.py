@@ -12,6 +12,7 @@ class CreateAndUpdateTest(BaseModel):
 
 class Test(CreateAndUpdateTest):
     id : int
+    sharableId : str
 
     class Config:
         orm_mode = True

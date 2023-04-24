@@ -1,7 +1,6 @@
 from sqlalchemy.schema import Column
-from sqlalchemy.types import String, Integer, Enum
+from sqlalchemy.types import String, Integer
 from config.database import Base
-import enum
 
 class Question(Base):
     __tablename__ = "responses"
