@@ -10,4 +10,4 @@ class McqOptionsInfo(Base):
    option2 = Column(String);
    option3 = Column(String);
    option4 = Column(String);
-   correctOption = Column(String);
+   correctOption = Column(Integer);

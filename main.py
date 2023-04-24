@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import optionsApis, userApis, questionApis, testApi
+from routes import optionsApis, userApis, questionApis, testApi, studentTestMapApi
 # Initialize the app
 app = FastAPI()
 
@@ -20,8 +20,9 @@ app.add_middleware(
 
 
 app.include_router(userApis.router)
-app.include_router(optionsApis.router)
-app.include_router(questionApis.router)
+app.include_router(studentTestMapApi.router)
+# app.include_router(optionsApis.router)
+# app.include_router(questionApis.router)
 app.include_router(testApi.router)
 
 # GET operation at route '/'

@@ -7,4 +7,4 @@ class StudentTestMapInfo(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     userEmail = Column(String)
-    
+    testId = Column(Integer)

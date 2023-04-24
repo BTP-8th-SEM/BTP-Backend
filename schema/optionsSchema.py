@@ -6,7 +6,7 @@ class CreateAndUpdateOptions(BaseModel):
     option2 : str
     option3 : str
     option4 : str
-    correctOption : str
+    correctOption : int
 
 class Options(CreateAndUpdateOptions):
     id : int

@@ -7,6 +7,7 @@ class TestInfo(Base):
     __tablename__ = "test_db"
 
     id = Column(Integer, primary_key=True, index=True)
+    teacherId = Column(Integer)
     sharableId = Column(String)
     name = Column(String)
     maxMarks = Column(Integer)
