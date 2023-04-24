@@ -42,8 +42,8 @@ def create_user(session: Session, user_info: CreateAndUpdateUser) -> UserInfo:
 
 
 # Function to update details of the car
-def update_user_info(session: Session, _id: int, info_update: CreateAndUpdateUser) -> UserInfo:
-    user_info = get_user_info_by_id(session, _id)
+def update_user_info(session: Session, email: str, info_update: CreateAndUpdateUser) -> UserInfo:
+    user_info = get_user_info_by_email(session, email)
 
     if user_info is None:
         raise UserInfoNotFoundError
@@ -62,8 +62,8 @@ def update_user_info(session: Session, _id: int, info_update: CreateAndUpdateUse
 
 
 # Function to delete a car info from the db
-def delete_user_info(session: Session, _id: int):
-    user_info = get_user_info_by_id(session, _id)
+def delete_user_info(session: Session, email: str):
+    user_info = get_user_info_by_email(session, email)
 
     if user_info is None:
         raise UserInfoNotFoundError
