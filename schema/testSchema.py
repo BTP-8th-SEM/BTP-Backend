@@ -3,7 +3,6 @@ from typing import List
 from model.questionModel import AnswerType
 
 class CreateAndUpdateTest(BaseModel):
-    id : int
     name : str
     maxMarks : int
     passMarks : int

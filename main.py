@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import userApis, answerApis, questionApis
+from routes import optionsApis, userApis, questionApis, testApi
 # Initialize the app
 app = FastAPI()
 
@@ -8,7 +8,6 @@ origins = [
     "http://localhost.tiangolo.com",
     "https://localhost.tiangolo.com",
     "http://localhost",
-    "http://localhost:3000",
 ]
 
 app.add_middleware(
@@ -21,8 +20,9 @@ app.add_middleware(
 
 
 app.include_router(userApis.router)
-app.include_router(answerApis.router)
+app.include_router(optionsApis.router)
 app.include_router(questionApis.router)
+app.include_router(testApi.router)
 
 # GET operation at route '/'
 @app.get('/')

@@ -2,11 +2,11 @@ from pydantic import BaseModel
 from typing import List
 
 class CreateAndUpdateOptions(BaseModel):
-    option1 : int
-    option2 : int
-    option3 : int
-    option4 : int
-    correctOption : int
+    option1 : str
+    option2 : str
+    option3 : str
+    option4 : str
+    correctOption : str
 
 class Options(CreateAndUpdateOptions):
     id : int

@@ -21,16 +21,6 @@ CREATE TABLE `users` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `mcq_options` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `option1` int DEFAULT NULL,
-  `option2` int DEFAULT NULL,
-  `option3` int DEFAULT NULL,
-  `option4` int DEFAULT NULL,
-  `correctOption` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 CREATE TABLE `responses` (
   `id` int NOT NULL AUTO_INCREMENT,
   `questionId` int DEFAULT NULL,
@@ -53,7 +43,6 @@ CREATE TABLE `test_db` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
 -- update this
 
 ALTER TABLE `intest`.`questions` 
@@ -71,3 +60,4 @@ CREATE TABLE `mcq_options` (
   `correctOption` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
