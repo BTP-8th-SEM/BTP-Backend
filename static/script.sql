@@ -4,7 +4,7 @@ CREATE TABLE `mcq_options` (
   `option2` varchar(255) DEFAULT NULL,
   `option3` varchar(255) DEFAULT NULL,
   `option4` varchar(255) DEFAULT NULL,
-  `correctOption` varchar(255) DEFAULT NULL,
+  `correctOption` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -29,17 +29,20 @@ CREATE TABLE `responses` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 CREATE TABLE `test_db` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `maxMarks` int NOT NULL,
-  `passMarks` int NOT NULL,
-  `testType` varchar(45) NOT NULL,
-  `startTime` varchar(45) NOT NULL,
-  `endTime` varchar(45) NOT NULL,
-  `sharableId` varchar(45) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `maxMarks` int DEFAULT NULL,
+  `passMarks` int DEFAULT NULL,
+  `testType` varchar(45) DEFAULT NULL,
+  `startTime` varchar(45) DEFAULT NULL,
+  `endTime` varchar(45) DEFAULT NULL,
+  `sharableId` varchar(45) DEFAULT NULL,
+  `teacherId` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,
