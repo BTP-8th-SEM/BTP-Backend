@@ -40,3 +40,15 @@ CREATE TABLE `responses` (
   `obtainedMarks` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `test_db` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `maxMarks` int NOT NULL,
+  `passMarks` int NOT NULL,
+  `testType` int NOT NULL,
+  `startTime` varchar(45) NOT NULL,
+  `endTime` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

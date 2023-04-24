@@ -5,7 +5,7 @@ from config.database import Base
 import enum
 
 class Test(Base):
-    __tablename__ = "test"
+    __tablename__ = "test_db"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
