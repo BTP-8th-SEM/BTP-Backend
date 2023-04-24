@@ -52,3 +52,22 @@ CREATE TABLE `test_db` (
   `endTime` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- update this
+
+ALTER TABLE `intest`.`questions` 
+CHANGE COLUMN `body` `body` VARCHAR(255) NULL DEFAULT NULL ;
+
+ALTER TABLE `intest`.`responses` 
+CHANGE COLUMN `body` `body` VARCHAR(255) NULL DEFAULT NULL ;
+
+CREATE TABLE `mcq_options` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `option1` varchar(255) DEFAULT NULL,
+  `option2` varchar(255) DEFAULT NULL,
+  `option3` varchar(255) DEFAULT NULL,
+  `option4` varchar(255) DEFAULT NULL,
+  `correctOption` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
