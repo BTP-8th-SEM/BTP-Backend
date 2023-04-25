@@ -33,10 +33,17 @@ def get_prev_test_list(session: Session, email: str) -> List[TestInfo]:
     return prev_test_list
 
 def get_upcoming_test_list_teacher(session: Session, email: str) -> List[TestInfo]:
-    return None
+    test_list = get_test_list_email(session, email)
+    upcoming_test_list = list(filter(lambda testInfo:diffTimePositive(testInfo.endTime), test_list))
+    return upcoming_test_list
 
 def get_prev_test_list_teacher(session: Session, email: str) -> List[TestInfo]:
-    return None
+    test_list = get_test_list_email(session, email)
+    prev_test_list = list(filter(lambda testInfo:diffTimePositive(testInfo.endTime)==False, test_list))
+    return prev_test_list
+
+def get_test_list_email(session: Session, email: str) -> List[TestInfo]:
+    return list(filter(lambda testInfo:testInfo.teacherEmail == email, session.query(TestInfo).all()))
 
 def get_tests_list(session: Session, id_list: List[int]) -> List[TestInfo]:
     test_list = list(filter(lambda testInfo:testInfo.id in id_list, session.query(TestInfo).all()))

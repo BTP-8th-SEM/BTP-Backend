@@ -10,7 +10,6 @@ CREATE TABLE `users` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
 CREATE TABLE `test_db` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -20,9 +19,9 @@ CREATE TABLE `test_db` (
   `startTime` varchar(45) DEFAULT NULL,
   `endTime` varchar(45) DEFAULT NULL,
   `sharableId` varchar(45) DEFAULT NULL,
-  `teacherId` int DEFAULT NULL,
+  `teacherEmail` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 CREATE TABLE `questions` (

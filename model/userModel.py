@@ -4,8 +4,8 @@ from config.database import Base
 import enum
 
 class UserType(str, enum.Enum):
-    Student = "Student"
-    Teacher = "Teacher"
+    student = "student"
+    teacher = "teacher"
 
 class UserInfo(Base):
     __tablename__ = "users"
