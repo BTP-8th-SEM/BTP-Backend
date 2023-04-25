@@ -8,19 +8,19 @@ INSERT INTO `users` (`email`, `firstName`, `lastName`, `password`, `role`, `prof
 ('hrithik@gmail.com', 'Hrithik', 'Roshan', 'password', 'student', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Hrithik_roshan.jpg');
 
 -- #Tests
-INSERT INTO `test_db` (`name`, `maxMarks`, `passMarks`, `testType`, `startTime`, `endTime`, `sharableId`, `teacherId`) VALUES
-('GK Test', 15, 0, 'MCQ', '2023-04-24 00:00:00', '2023-04-30 00:00:00', 'ABC123', 1);
+INSERT INTO `test_db` (`name`, `maxMarks`, `passMarks`, `testType`, `startTime`, `endTime`, `sharableId`, `teacherEmail`) VALUES
+('GK Test', 15, 10, 'MCQ', '2023-04-24 00:00:00', '2023-04-30 00:00:00', 'ABC123', 'amitabh@gmail.com');
 
 -- # Questions
 -- Question 1
 INSERT INTO questions (optionsId, testId, maxMarks, body, topic, answerType) VALUES
-(1, 1, 5, 'What is the capital of India?', 'General Knowledge', 'mcq');
+(1, 1, 5, 'What is the capital of India?', 'Cities', 'mcq');
 -- Question 2
 INSERT INTO questions (optionsId, testId, maxMarks, body, topic, answerType) VALUES
-(2, 1, 5, 'Who is the current Prime Minister of India?', 'General Knowledge', 'mcq');
+(2, 1, 5, 'Who is the current Prime Minister of India?', 'Government', 'mcq');
 -- Question 3
 INSERT INTO questions (optionsId, testId, maxMarks, body, topic, answerType) VALUES
-(3, 1, 5, 'What is the national animal of India?', 'General Knowledge', 'mcq');
+(3, 1, 5, 'What is the national animal of India?', 'Animals', 'mcq');
 
 -- # Options
 -- Options for Question 1
@@ -46,14 +46,14 @@ INSERT INTO responses (questionId, userId, testId, body, obtainedMarks) VALUES
 (3, 3, 1, 'Lion', 0);
 -- Responses for Student 3 for Test 1
 INSERT INTO responses (questionId, userId, testId, body, obtainedMarks) VALUES
-(1, 4, 1, 'New Delhi', 5),
+(1, 4, 1, 'Mumbai', 0),
 (2, 4, 1, 'Narendra Modi', 5),
-(3, 4, 1, 'Tiger', 5);
+(3, 4, 1, 'Lion', 0);
 -- Responses for Student 4  for Test 1
 INSERT INTO responses (questionId, userId, testId, body, obtainedMarks) VALUES
-(1, 4, 1, 'New Delhi', 5),
-(2, 4, 1, 'Narendra Modi', 5),
-(3, 4, 1, 'Tiger', 5);
+(1, 5, 1, 'New Delhi', 5),
+(2, 5, 1, 'Rahul Gandhi', 0),
+(3, 5, 1, 'Tiger', 5);
 
 
 
