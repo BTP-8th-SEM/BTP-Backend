@@ -1,2 +1,6 @@
 pip install uvicorn
 pip install fastapi
+pip install python-dotenv
+pip install sqlalchemy
+pip install fastapi-utils
+pip install pymysql
