@@ -1,9 +1,9 @@
 from typing import List
 from sqlalchemy.orm import Session
-from exceptions.optionsExceptions import OptionsInfoNotFoundError
+# from exceptions.optionsExceptions import OptionsInfoNotFoundError
 from model.studentTestMap import StudentTestMapInfo
-from model.testModel import TestInfo
-from repository.testRepository import get_tests_list
+# from model.testModel import TestInfo
+# from repository.testRepository import get_tests_list
 from schema.studentTestMapSchema import *
 import string, random
 
@@ -12,15 +12,15 @@ import string, random
 def get_all_maps(session: Session, limit: int, offset: int) -> List[StudentTestMapInfo]:
     return session.query(StudentTestMapInfo).offset(offset).limit(limit).all()
 
-def get_all_email(session: Session, email: str) -> List[StudentTestMapInfo]:
+def get_all_map_email(session: Session, email: str) -> List[StudentTestMapInfo]:
     return session.query(StudentTestMapInfo).filter(StudentTestMapInfo.userEmail == email).all()
 
-def get_test_list_email(session: Session, userEmail: str) -> List[TestInfo]:
-    list_test_info = get_all_email(session, userEmail)
-    print(list_test_info)
-    list_test_id = [test_info.testId for test_info in list_test_info]
-    print(list_test_id)
-    return get_tests_list(session, list_test_id)
+# def get_test_list_email(session: Session, userEmail: str) -> List[TestInfo]:
+#     list_test_info = get_all_map_email(session, userEmail)
+#     print(list_test_info)
+#     list_test_id = [test_info.testId for test_info in list_test_info]
+#     print(list_test_id)
+#     return get_tests_list(session, list_test_id)
 
 def create_map_repo(map: CreateAndUpdateStudentTestMap, session: Session) -> StudentTestMapInfo:
     new_map_info = StudentTestMapInfo(**map.dict())

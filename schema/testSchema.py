@@ -4,7 +4,7 @@ from model.questionModel import AnswerType
 
 class CreateAndUpdateTest(BaseModel):
     name : str
-    teacherId : int
+    teacherEmail : str
     maxMarks : int
     passMarks : int
     testType : AnswerType

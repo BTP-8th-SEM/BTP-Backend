@@ -54,30 +54,30 @@ def get_user_by_email(user_email: str, session: Session = Depends(get_db)):
     except UserInfoException as cie:
         raise HTTPException(**cie.__dict__)
 
-@router.get("/getUser/{user_id}", response_model=User)
-def get_user_info(user_id: int, session: Session = Depends(get_db)):
+# @router.get("/getUser/{user_id}", response_model=User)
+# def get_user_info(user_id: int, session: Session = Depends(get_db)):
 
-    try:
-        user_info = get_user_info_by_id(session, user_id)
-        return user_info
-    except UserInfoException as cie:
-        raise HTTPException(**cie.__dict__)
-
-
-@router.put("/updateUser/{email_id}", response_model=User)
-def update_User(email_id: str, new_info: CreateAndUpdateUser, session: Session = Depends(get_db)):
-
-    try:
-        user_info = update_user_info(session, email_id, new_info)
-        return user_info
-    except UserInfoException as cie:
-        raise HTTPException(**cie.__dict__)
+#     try:
+#         user_info = get_user_info_by_id(session, user_id)
+#         return user_info
+#     except UserInfoException as cie:
+#         raise HTTPException(**cie.__dict__)
 
 
-@router.delete("/deleteUser/{email_id}")
-def delete_user(email_id: str, session: Session = Depends(get_db)):
+# @router.put("/updateUser/{email_id}", response_model=User)
+# def update_User(email_id: str, new_info: CreateAndUpdateUser, session: Session = Depends(get_db)):
 
-    try:
-        return delete_user_info(session, email_id)
-    except UserInfoException as cie:
-        raise HTTPException(**cie.__dict__)
+#     try:
+#         user_info = update_user_info(session, email_id, new_info)
+#         return user_info
+#     except UserInfoException as cie:
+#         raise HTTPException(**cie.__dict__)
+
+
+# @router.delete("/deleteUser/{email_id}")
+# def delete_user(email_id: str, session: Session = Depends(get_db)):
+
+#     try:
+#         return delete_user_info(session, email_id)
+#     except UserInfoException as cie:
+#         raise HTTPException(**cie.__dict__)
