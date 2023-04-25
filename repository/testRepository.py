@@ -10,18 +10,11 @@ import string, random
 def get_all_tests(session: Session, limit: int, offset: int) -> List[TestInfo]:
     return session.query(TestInfo).offset(offset).limit(limit).all()
 
+def get_tests_list(session: Session, id_list: List[int]) -> List[TestInfo]:
+    test_list = list(filter(lambda testInfo:testInfo.id in id_list , session.query(TestInfo).all()))
+    print(test_list)
+    return test_list
 
-# Function to  get info of a particular car
-# def get_options_by_id(session: Session, _id: int) -> McqOptionsInfo:
-#     options_info = session.query(McqOptionsInfo).get(_id)
-
-#     if options_info is None:
-#         raise OptionsInfoNotFoundError
-
-#     return options_info
-
-
-# Function to add a new car info to the database
 def create_test(session: Session, tests_info: CreateAndUpdateTest) -> TestInfo:
     new_tests_info = TestInfo(**tests_info.dict())
     new_tests_info.sharableId = generate()

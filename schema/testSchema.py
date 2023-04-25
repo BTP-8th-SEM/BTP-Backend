@@ -1,9 +1,10 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from model.questionModel import AnswerType
 
 class CreateAndUpdateTest(BaseModel):
     name : str
+    teacherId : int
     maxMarks : int
     passMarks : int
     testType : AnswerType
@@ -18,6 +19,4 @@ class Test(CreateAndUpdateTest):
         orm_mode = True
 
 class PaginatedTest(BaseModel):
-    limit: int
-    offset: int
-    data: List[Test]
+    data: Optional[List[Test]] = None 
