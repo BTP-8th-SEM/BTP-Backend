@@ -14,13 +14,13 @@ INSERT INTO `test_db` (`name`, `maxMarks`, `passMarks`, `testType`, `startTime`,
 -- # Questions
 -- Question 1
 INSERT INTO questions (optionsId, testId, maxMarks, body, topic, answerType) VALUES
-(1, 1, 5, 'What is the capital of India?', 'General Knowledge', 'mcq');
+(1, 1, 5, 'What is the capital of India?', 'Cities', 'mcq');
 -- Question 2
 INSERT INTO questions (optionsId, testId, maxMarks, body, topic, answerType) VALUES
-(2, 1, 5, 'Who is the current Prime Minister of India?', 'General Knowledge', 'mcq');
+(2, 1, 5, 'Who is the current Prime Minister of India?', 'Government', 'mcq');
 -- Question 3
 INSERT INTO questions (optionsId, testId, maxMarks, body, topic, answerType) VALUES
-(3, 1, 5, 'What is the national animal of India?', 'General Knowledge', 'mcq');
+(3, 1, 5, 'What is the national animal of India?', 'Animals', 'mcq');
 
 -- # Options
 -- Options for Question 1
