@@ -4,3 +4,5 @@ python-dotenv
 sqlalchemy
 fastapi-utils
 pymysql
+mysql.connector
+pandas

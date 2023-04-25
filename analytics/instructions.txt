@@ -1,0 +1,7 @@
+1. dependencies
+-> install dependencies in requirements.txt
+
+2. running OLAP
+-> refer to OLAP.py file
+-> call run_OLAP_Test() function to get JSON output of test analysis
+-> run_OLAP_Test(testId: int) //input is testId[integer type]
