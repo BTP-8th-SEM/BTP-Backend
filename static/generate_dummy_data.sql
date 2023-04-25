@@ -8,8 +8,8 @@ INSERT INTO `users` (`email`, `firstName`, `lastName`, `password`, `role`, `prof
 ('hrithik@gmail.com', 'Hrithik', 'Roshan', 'password', 'student', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Hrithik_roshan.jpg');
 
 -- #Tests
-INSERT INTO `test_db` (`name`, `maxMarks`, `passMarks`, `testType`, `startTime`, `endTime`, `sharableId`, `teacherId`) VALUES
-('GK Test', 15, 10, 'MCQ', '2023-04-24 00:00:00', '2023-04-30 00:00:00', 'ABC123', 1);
+INSERT INTO `test_db` (`name`, `maxMarks`, `passMarks`, `testType`, `startTime`, `endTime`, `sharableId`, `teacherEmail`) VALUES
+('GK Test', 15, 10, 'MCQ', '2023-04-24 00:00:00', '2023-04-30 00:00:00', 'ABC123', 'amitabh@gmail.com');
 
 -- # Questions
 -- Question 1
