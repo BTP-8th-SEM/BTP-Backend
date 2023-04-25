@@ -61,3 +61,26 @@ CREATE TABLE `student_test_map` (
   `testId` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `intest`.`olap_test` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `testId` INT NULL,
+  `totalAppeared` INT NULL,
+  `maxMarks` INT NULL,
+  `highestMarks` INT NULL,
+  `lowestMarks` INT NULL,
+  `avgMarks` INT NULL,
+  `noOfPassed` INT NULL,
+  `noOfFailed` INT NULL,
+  `lastUpdated` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`));
+  
+CREATE TABLE `intest`.`olap_question` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `questionId` INT NULL,
+  `maxMarks` INT NULL,
+  `highestMarks` INT NULL,
+  `lowestMarks` INT NULL,
+  `avgMarks` INT NULL,
+  `topic` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
