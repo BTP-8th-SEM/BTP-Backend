@@ -18,6 +18,13 @@ def run_OLAP_Test(testId: int):
     else:
         id=len(df.olap_test)+1
     testOLAPResults['id']=id
+<<<<<<< Updated upstream
     return {i: np_encoder(v) if type(v) not in {int, str} else v for i,v in testOLAPResults.items()}
+=======
+    
+    json = json.dump(testOLAPResults,np_encoder)
+    print(json)
+    return json
+>>>>>>> Stashed changes
     
     
