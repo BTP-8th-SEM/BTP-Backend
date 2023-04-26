@@ -18,7 +18,6 @@ def run_OLAP_Test(testId: int):
     else:
         id=len(df.olap_test)+1
     testOLAPResults['id']=id
-    print(dict(testOLAPResults))
-    return {i:np_encoder(v) for i,v in testOLAPResults.items()}
+    return {i: np_encoder(v) if type(v) not in {int, str} else v for i,v in testOLAPResults.items()}
     
     
