@@ -18,7 +18,7 @@ def run_OLAP_Test(testId: int):
     else:
         id=len(df.olap_test)+1
     testOLAPResults['id']=id
-    
-    return json.dumps(testOLAPResults, default=np_encoder)
+    print(dict(testOLAPResults))
+    return {i:np_encoder(v) for i,v in testOLAPResults.items()}
     
     

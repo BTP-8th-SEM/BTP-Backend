@@ -5,7 +5,10 @@ import mysql.connector
 class dataframes:
     user=test=questions=options=responses=olap_test=olap_question=pd.DataFrame()
     def __init__(self):
-        cnx = mysql.connector.connect(user='root', password='my123sql',
+        # cnx = mysql.connector.connect(user='root', password='my123sql',
+        #                       host='localhost', database='intest')
+
+        cnx = mysql.connector.connect(user='root', password='123456',
                               host='localhost', database='intest')
         
         query_user = "SELECT * FROM users"
