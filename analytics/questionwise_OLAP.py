@@ -11,6 +11,7 @@ class OLAP_questions:
     #maps dataframes created 
     def __init__(self, df:dataframes):
         self.df=df
+
         
     #calculates analysis for a particular question by questionId
     def calculate(self,questionId:int):

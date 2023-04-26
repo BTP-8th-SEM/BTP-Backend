@@ -22,9 +22,10 @@ class studentAnalysis:
     
     #provides analysis of particular question wrt student's response to that question
     def getQuestionData(self, testId:int, studentId: int, questionId: int):
-        olapq=OLAP_questions(df=self.df,testId=testId)
+        olapq=OLAP_questions(df=self.df)
         result=olapq.calculate(questionId=questionId)
         response=self.df.responses.query('testId==@testId & userId==@studentId & questionId==@questionId')
+        print("\nsize:",response.size,"\n")
         result['obtainedMarks']=response['obtainedMarks'].iloc[0]
         return result
     
