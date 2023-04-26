@@ -7,7 +7,7 @@ from exceptions.userExceptions import UserInfoException
 from schema.userSchema import User, CreateAndUpdateUser, PaginatedUserInfo
 from schema.AuthenticationResponse import AuthenticationResponse
 
-router = APIRouter()
+router = APIRouter(tags=['user apis'])
 
 @cbv(router)
 class Users:
