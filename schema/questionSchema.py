@@ -6,9 +6,9 @@ class CreateAndUpdateQuestion(BaseModel):
     testId : int
     optionsId : int
     maxMarks : int
-    topic : str
+    topic : str = 'basic'
     body : str
-    answerType : AnswerType
+    answerType : AnswerType = 'MCQ'
 
 class Question(CreateAndUpdateQuestion):
     id : int
