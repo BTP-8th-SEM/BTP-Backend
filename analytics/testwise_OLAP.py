@@ -1,4 +1,5 @@
-from connection import dataframes
+from analytics.connection import dataframes
+
 class OLAP_Test:
     df:dataframes
     results={'id': 0, 'testId':0, 'totalAppeared':0, 'maxMarks':0, 'highestMarks':0, 'lowestMarks':0,

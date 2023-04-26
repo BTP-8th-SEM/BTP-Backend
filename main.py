@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import optionsApis, userApis, questionApis, testApi, studentTestMapApi
+from routes import optionsApis, userApis, questionApis, testApi, studentTestMapApi, OLAPApis
+
 # Initialize the app
 app = FastAPI()
 
@@ -24,7 +25,7 @@ app.include_router(studentTestMapApi.router)
 # app.include_router(optionsApis.router)
 # app.include_router(questionApis.router)
 app.include_router(testApi.router)
-
+app.include_router(OLAPApis.router)
 # GET operation at route '/'
 @app.get('/')
 def root_api():
