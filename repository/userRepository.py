@@ -27,9 +27,7 @@ def get_user_info_by_email(session: Session, email: str) -> UserInfo:
 
     return user_info
 
-def get_users_by_email_list(session: Session, email: List[str]) -> UserInfo:
-    print(email)
-    # user_info = session.query(UserInfo).filter(UserInfo.email in email).all()
+def get_users_by_email_list(session: Session, email: List[str]) -> List[UserInfo]:
     user_info = list(filter(lambda x:x.email in email,session.query(UserInfo).all()))
     return user_info
 
