@@ -19,6 +19,7 @@ def create_map(map: CreateAndUpdateStudentTestMap, session: Session = Depends(ge
 @router.get("/getStudents")
 def getStudent(testId: int, session: Session = Depends(get_db)):
     analysis = studentAnalysis(dataframes()).getStudentsList(testId)
+    print(analysis)
     new_list = []
     for student in analysis:
         new_list.append({key:np_encoder(value) for key,value in student.items()})

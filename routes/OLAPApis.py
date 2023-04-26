@@ -17,6 +17,7 @@ def get_user_by_email(id: int):
 @router.get("/getUserTestAnalysis/{testId}/{studentId}")
 def get_user_by_email(testId: int, studentId: int, session: Session = Depends(get_db)):
    data = studentAnalysis(dataframes()).getTestData(testId, studentId)
+   print(data)
    name = get_test_by_id_repo(session, testId).name
    print(data)
    new_data = {
@@ -29,7 +30,7 @@ def get_user_by_email(testId: int, studentId: int, session: Session = Depends(ge
    return [{key:np_encoder(value) for key, value in new_data.items()}]
 
 @router.get("/getQuestionVSMarks/{testId}/{studentId}")
-def get_user_by_email(testId: int, studentId: int, session: Session = Depends(get_db)):
+def get_question_vs_marks(testId: int, studentId: int, session: Session = Depends(get_db)):
    list_question = get_question_list(session, testId)
    new_list = []
    for question in list_question :
@@ -44,7 +45,27 @@ def get_user_by_email(testId: int, studentId: int, session: Session = Depends(ge
       }
       new_list.append(data1)
    return new_list
-   
+
+
+@router.get("/getResult/{testId}/{studentId}")
+def get_results(testId: int, studentId: int, session: Session = Depends(get_db)):
+   test = get_test_by_id_repo(session, testId)
+   print(test)
+   analysis = list(filter(lambda analysis:analysis['userId'] == studentId, studentAnalysis(dataframes()).getStudentsList(testId)))
+   print(analysis)
+
+   passingStatus = (test.passMarks <= analysis[0]['obtainedMarks'])
+   passOrFail = "Fail"
+   if passingStatus:
+      passOrFail = "Pass"
+
+   data = {
+      "testName" : test.name,
+      "passingStatus" : passOrFail,
+      "yourMarks" : analysis[0]['obtainedMarks'],
+      "maxMarks" : test.maxMarks
+   }
+   return {key:np_encoder(value)  for key, value in data.items()}
 
 
 
