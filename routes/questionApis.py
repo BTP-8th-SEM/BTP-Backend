@@ -6,7 +6,7 @@ from config.database import get_db
 from exceptions.questionExceptions import QuestionInfoException
 from schema.questionSchema import Question, CreateAndUpdateQuestion, PaginatedQuestion
 
-router = APIRouter()
+router = APIRouter( tags=['questions'])
 
 # Example of Class based view
 @cbv(router)

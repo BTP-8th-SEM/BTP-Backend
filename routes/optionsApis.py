@@ -6,7 +6,9 @@ from config.database import get_db
 from exceptions.optionsExceptions import OptionsInfoException
 from schema.optionsSchema import Options, CreateAndUpdateOptions, PaginatedOptions
 
-router = APIRouter()
+router = APIRouter(
+     tags=['options']
+)
 
 # Example of Class based view
 @cbv(router)

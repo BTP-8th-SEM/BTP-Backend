@@ -22,8 +22,8 @@ app.add_middleware(
 
 app.include_router(userApis.router)
 app.include_router(studentTestMapApi.router)
-# app.include_router(optionsApis.router)
-# app.include_router(questionApis.router)
+app.include_router(optionsApis.router)
+app.include_router(questionApis.router)
 app.include_router(testApi.router)
 app.include_router(OLAPApis.router)
 # GET operation at route '/'
