@@ -2,7 +2,7 @@ from sqlalchemy.schema import Column
 from sqlalchemy.types import String, Integer
 from config.database import Base
 
-class Question(Base):
+class ResponsesInfo(Base):
     __tablename__ = "responses"
 
     id = Column(Integer, primary_key=True, index=True)
