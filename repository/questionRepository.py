@@ -27,3 +27,6 @@ def create_question(session: Session, question_info: CreateAndUpdateQuestion) ->
     session.commit()
     session.refresh(new_question_info)
     return new_question_info
+
+def get_question_list(session: Session, testId: int):
+    return session.query(Question).filter(Question.testId == testId).all();
