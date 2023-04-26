@@ -10,7 +10,6 @@ class studentAnalysis:
     def __init__(self,df:dataframes) -> None:
         self.df=df
         
-    #returns overall analysis of the student's test
     def getTestData(self, testId:int, studentId: int):
         olapTest=OLAP_Test(df=self.df,testId=testId)
         results=olapTest.calculate()
@@ -19,10 +18,23 @@ class studentAnalysis:
         results['totalMarksObtained']=responses['obtainedMarks'].sum()
         return results
     
-    #returns questionId-based analysis of student's responses
     def getQuestionData(self, testId:int, studentId: int, questionId: int):
         olapq=OLAP_questions(df=self.df,testId=testId)
         result=olapq.calculate(questionId=questionId)
         response=self.df.responses.query('testId==@testId & userId==@studentId & questionId==@questionId')
         result['obtainedMarks']=response['obtainedMarks'].iloc[0]
         return result
+    
+    def getStudents(self,testId:int):
+        responses=self.df.responses.query('testId==@testId')
+        userIdList=responses.userId.unique()
+        results=[]
+        for id in userIdList:
+            data={}
+            user=self.df.user.query('id==@id').iloc[0]
+            data['userId']=id
+            data['firstName']=user['firstName']
+            data['lastName']=user['lastName']
+            data['obtainedMarks']=self.getTestData(testId=testId,studentId=id)['totalMarksObtained']
+            results.append(data)
+        return results
