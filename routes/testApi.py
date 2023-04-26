@@ -7,7 +7,7 @@ from config.database import get_db
 from exceptions.optionsExceptions import OptionsInfoException
 from schema.testSchema import Test, CreateAndUpdateTest, PaginatedTest
 
-router = APIRouter()
+router = APIRouter(tags=['test Apis'])
 
 @cbv(router)
 class Answers:
