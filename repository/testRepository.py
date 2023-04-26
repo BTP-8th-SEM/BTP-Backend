@@ -27,9 +27,13 @@ def get_upcoming_test_list(session: Session, email: str) -> List[TestInfo]:
 
 def get_prev_test_list(session: Session, email: str) -> List[TestInfo]:
     map_list = get_all_map_email(session, email)
+    print(map_list)
     list_test_id = [map_info.testId for map_info in map_list]
+    print(list_test_id)
     test_list = get_tests_list(session, list_test_id)
+    print(test_list)
     prev_test_list = list(filter(lambda testInfo:diffTimePositive(testInfo.endTime)==False, test_list))
+    print(prev_test_list)
     return prev_test_list
 
 def get_upcoming_test_list_teacher(session: Session, email: str) -> List[TestInfo]:
