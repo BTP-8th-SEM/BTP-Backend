@@ -9,7 +9,8 @@ INSERT INTO `users` (`email`, `firstName`, `lastName`, `password`, `role`, `prof
 
 -- #Tests
 INSERT INTO `test_db` (`name`, `maxMarks`, `passMarks`, `testType`, `startTime`, `endTime`, `sharableId`, `teacherEmail`) VALUES
-('GK Test', 15, 10, 'MCQ', '2023-04-24 00:00:00', '2023-04-30 00:00:00', 'ABC123', 'amitabh@gmail.com');
+('GK Test', 15, 10, 'MCQ', '27-04-2023 12:30 PM', '27-04-2023 2:30 PM', 'ABC123', 'amitabh@gmail.com'),
+('DSA', 20, 7, 'MCQ', '25-04-2023 12:30 PM', '25-04-2023 2:30 PM', 'ABC123', 'amitabh@gmail.com');
 
 -- # Questions
 -- Question 1

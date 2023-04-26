@@ -4,7 +4,7 @@ from repository.studentTestRepository import *
 from config.database import get_db
 from repository.userRepository import get_users_by_email_list
 
-router = APIRouter()
+router = APIRouter(tags=['map api'])
 
 session: Session = Depends(get_db)        
 
