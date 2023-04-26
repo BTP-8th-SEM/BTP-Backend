@@ -54,14 +54,14 @@ def get_user_by_email(user_email: str, session: Session = Depends(get_db)):
     except UserInfoException as cie:
         raise HTTPException(**cie.__dict__)
 
-# @router.get("/getUser/{user_id}", response_model=User)
-# def get_user_info(user_id: int, session: Session = Depends(get_db)):
+@router.get("/getUser/{user_id}", response_model=User)
+def get_user_info(user_id: int, session: Session = Depends(get_db)):
 
-#     try:
-#         user_info = get_user_info_by_id(session, user_id)
-#         return user_info
-#     except UserInfoException as cie:
-#         raise HTTPException(**cie.__dict__)
+    try:
+        user_info = get_user_info_by_id(session, user_id)
+        return user_info
+    except UserInfoException as cie:
+        raise HTTPException(**cie.__dict__)
 
 
 # @router.put("/updateUser/{email_id}", response_model=User)
