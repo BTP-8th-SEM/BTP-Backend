@@ -25,7 +25,7 @@ class studentAnalysis:
         result['obtainedMarks']=response['obtainedMarks'].iloc[0]
         return result
     
-    def getStudents(self,testId:int):
+    def getStudentsList(self, testId:int):
         responses=self.df.responses.query('testId==@testId')
         userIdList=responses.userId.unique()
         results=[]

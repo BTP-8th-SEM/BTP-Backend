@@ -10,7 +10,7 @@ from datetime import datetime
 def get_all_tests(session: Session, limit: int, offset: int) -> List[TestInfo]:
     return session.query(TestInfo).offset(offset).limit(limit).all()
 
-def get_test_by_id(session: Session, id: int) -> TestInfo:
+def get_test_by_id_repo(session: Session, id: int) -> TestInfo:
     test_info = session.query(TestInfo).get(id)
 
     if test_info is None:

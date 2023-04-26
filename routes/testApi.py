@@ -33,8 +33,8 @@ class Answers:
 @router.get("/getTestById/{id}")
 def get_test_by_id(id: int, session: Session = Depends(get_db)):
     try:
-        user_info = get_test_by_id(session, id)
-        return user_info
+        test_info = get_test_by_id_repo(session, id)
+        return test_info
     except TestNotFoundError as cie:
         raise HTTPException(**cie.__dict__)
 
