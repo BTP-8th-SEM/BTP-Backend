@@ -13,13 +13,12 @@ def get_all_student_ids(session: Session, id: int) -> List[str]:
 def get_all_map_email(session: Session, email: str) -> List[StudentTestMapInfo]:
     return session.query(StudentTestMapInfo).filter(StudentTestMapInfo.userEmail == email).all()
 
-def create_map_repo(map: CreateAndUpdateStudentTestMap, session: Session) -> StudentTestMapInfo:
-    if(CreateAndUpdateStudentTestMap.userEmail in session.query(StudentTestMapInfo).all() == False):        
-        new_map_info = StudentTestMapInfo(**map.dict())
-        session.add(new_map_info)
-        session.commit()
-        session.refresh(new_map_info)
-        return new_map_info
+def create_map_repo(map: CreateAndUpdateStudentTestMap, session: Session) -> StudentTestMapInfo:      
+    new_map_info = StudentTestMapInfo(**map.dict())
+    session.add(new_map_info)
+    session.commit()
+    session.refresh(new_map_info)
+    return new_map_info
         
 
 def generate() -> str:
