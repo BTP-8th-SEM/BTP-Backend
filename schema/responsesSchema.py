@@ -3,12 +3,11 @@ from typing import List
 from model.questionModel import AnswerType
 
 class CreateAndUpdateResponse(BaseModel):
-    testId : int
-    optionsId : int
-    maxMarks : int
-    topic : str
+    questionId : int
+    userEmail : str
+    testId : int 
     body : str
-    answerType : AnswerType
+    obtainedMarks : int
 
 class Response(CreateAndUpdateResponse):
     id : int
