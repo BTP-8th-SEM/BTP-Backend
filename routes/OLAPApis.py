@@ -48,6 +48,21 @@ def get_question_vs_marks(testId: int, studentId: int, session: Session = Depend
 
    return new_list
 
+@router.get("/getTopicWiseAnalysis/{testId}/{studentId}")
+def get_topic_wise_analysis(testId: int, studentId: int, session: Session = Depends(get_db)):
+   data = studentAnalysis(dataframes()).getTopicAnalysis(testId, studentId)
+   new_list = []
+   for d in data:
+      data1 = {
+        "topicName" : d['topic'],
+        "averageMarks": d['averageMarks'],
+        "yourMarks": d['yourMarks'],
+        "highestMarks": d['highestMarks'],
+        "lowestMarks": d['lowestMarks']
+      }
+      data2 = {key:np_encoder(value) for key, value in data1.items()}
+      new_list.append(data2)
+   return new_list
 
 @router.get("/getResult/{testId}/{studentId}")
 def get_results(testId: int, studentId: int, session: Session = Depends(get_db)):
