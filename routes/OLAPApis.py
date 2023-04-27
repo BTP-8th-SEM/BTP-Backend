@@ -38,12 +38,14 @@ def get_question_vs_marks(testId: int, studentId: int, session: Session = Depend
       print(data)
       data1 =  {
         "questionId": question.id,
-        "averageMarks": 50,
-        "yourMarks": 75,
-        "highestMarks": 100,
-        "lowestMarks": 20
+        "averageMarks": data['avgMarks'],
+        "yourMarks": data['obtainedMarks'],
+        "highestMarks": data['highestMarks'],
+        "lowestMarks": data['lowestMarks']
       }
-      new_list.append(data1)
+      data2 = {key:np_encoder(value) for key, value in data1.items()}
+      new_list.append(data2)
+
    return new_list
 
 

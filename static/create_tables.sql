@@ -33,7 +33,7 @@ CREATE TABLE `questions` (
   `topic` varchar(45) DEFAULT NULL,
   `answerType` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `mcq_options` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -43,7 +43,7 @@ CREATE TABLE `mcq_options` (
   `option4` varchar(255) DEFAULT NULL,
   `correctOption` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `responses` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -60,7 +60,7 @@ CREATE TABLE `student_test_map` (
   `userEmail` varchar(45) DEFAULT NULL,
   `testId` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `olap_test` (
   `id` INT NOT NULL AUTO_INCREMENT,
