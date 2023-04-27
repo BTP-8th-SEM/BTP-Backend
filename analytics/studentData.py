@@ -30,7 +30,7 @@ class studentAnalysis:
         return result
     
     #provides list of students that appeared in given Test
-    def getStudents(self,testId:int):
+    def getStudentsList(self,testId:int):
         responses=self.df.responses.query('testId==@testId')
         userIdList=responses.userId.unique()
         results=[]
